@@ -4,7 +4,7 @@
 //
 //  Created by Rayansh Gupta on 25/03/21.
 //
-
+/*
 import SwiftUI
 
 struct MainView: View {
@@ -85,39 +85,10 @@ struct MainView: View {
 }
 
 
-struct MoleView: View {
-    
-    var text: String = "Mole"
-    @State var isShowing = true
-    
-    var body: some View {
-        ZStack {
-            Ellipse()
-                .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
-                .frame(width: 100, height: 60)
-            Button(action: {isShowing = false}) {
-                ZStack {
-                    Image("person")
-                        .resizable().aspectRatio(contentMode: .fit)
-                        .frame(width: 80)
-                        .padding(.bottom, 60)
-                    Ellipse()
-                        .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
-                        .frame(width: 100, height: 60)
-                }
-            }
-            .opacity(isShowing ? 1.0 : 0.0)
-            .animation(.easeIn(duration: 2.0))
-        }
-        
-    }
-}
 
-
-
-
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
     }
 }
+*/

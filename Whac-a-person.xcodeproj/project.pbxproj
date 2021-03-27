@@ -11,6 +11,8 @@
 		44B4FC12260C56BD00BBD4DF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4FC11260C56BD00BBD4DF /* MainView.swift */; };
 		44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC13260C56BE00BBD4DF /* Assets.xcassets */; };
 		44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */; };
+		44D81DE0260F0BFB005D1918 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D81DDF260F0BFB005D1918 /* ContentView.swift */; };
+		44D81DE4260F9D61005D1918 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D81DE3260F9D61005D1918 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		44B4FC13260C56BE00BBD4DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B4FC18260C56BE00BBD4DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D81DDF260F0BFB005D1918 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		44D81DE3260F9D61005D1918 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */,
 				44B4FC11260C56BD00BBD4DF /* MainView.swift */,
+				44D81DDF260F0BFB005D1918 /* ContentView.swift */,
+				44D81DE3260F9D61005D1918 /* DataController.swift */,
 				44B4FC13260C56BE00BBD4DF /* Assets.xcassets */,
 				44B4FC18260C56BE00BBD4DF /* Info.plist */,
 				44B4FC15260C56BE00BBD4DF /* Preview Content */,
@@ -139,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44B4FC12260C56BD00BBD4DF /* MainView.swift in Sources */,
+				44D81DE4260F9D61005D1918 /* DataController.swift in Sources */,
 				44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */,
+				44D81DE0260F0BFB005D1918 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +288,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "rayansh.gupta.Whac-a-person";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,7 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "rayansh.gupta.Whac-a-person";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
