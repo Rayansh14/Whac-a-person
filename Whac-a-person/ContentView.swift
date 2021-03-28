@@ -20,16 +20,16 @@ struct ContentView: View {
     
     var body: some View {
         if status == .home {
-            homePageView
+            HomePageView
         } else if status == .playing{
-            playingView
+            PlayingView
         } else {
-            gameOverView
+            GameOverView
         }
     }
     
     
-    var homePageView: some View {
+    var HomePageView: some View {
         ZStack {
             Color.green
                 .ignoresSafeArea()
@@ -57,7 +57,7 @@ struct ContentView: View {
     }
     
     
-    var playingView: some View {
+    var PlayingView: some View {
         GeometryReader { geometry in
             ZStack {
                 
@@ -87,15 +87,32 @@ struct ContentView: View {
                 MoleView(score: $score)
                     .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5)*3)
                 
-                TimerView
-                Text(geometry.size.width.description)
+                HStack {
+                    VStack {
+                        Text("Time: \(timeRemaining)")
+                        Text("Score: \(score)")
+                        Spacer()
+                    }
+                    .padding(5)
+                    Spacer()
+                }
+                
+                VStack {
+                    Button(action: {}) {
+                        Image(systemName: "gear")
+                            .padding(8)
+                            .foregroundColor(.gray)
+                            .font(.largeTitle)
+                            .background(Color.clear)
+                        Spacer()
+                    }
+                }
                 
             }
         }
         .onReceive(timer) { time in
             if timeRemaining > 0 {
                 timeRemaining -= 1
-                score += 1
             } else {
                 status = .gameOver
             }
@@ -103,7 +120,7 @@ struct ContentView: View {
     }
     
     
-    var gameOverView: some View {
+    var GameOverView: some View {
         VStack {
             Text("Score: \(score)")
             Button(action: {status = .home}) {
@@ -118,57 +135,7 @@ struct ContentView: View {
         }
     }
     
-    
-    var TimerView: some View {
-        HStack {
-            VStack {
-                Text("Time: \(timeRemaining)")
-                Text("Score: \(score)")
-                Spacer()
-            }
-            .padding(5)
-            Spacer()
-        }
-    }
 }
-
-
-struct MoleView: View {
-    
-    var text: String = "Mole"
-    @State var isShowing = true
-    @Binding var score: Int
-    
-    var body: some View {
-        ZStack {
-            Ellipse()
-                .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
-                .frame(width: 100, height: 60)
-            Button(action: {
-                isShowing = false
-                score += 1
-            }) {
-                ZStack {
-                    Image("person")
-                        .resizable().aspectRatio(contentMode: .fit)
-                        .frame(width: 80)
-                        .padding(.bottom, isShowing ? 60 : 20)
-                    //                        .opacity(isShowing ? 1.0 : 0.0)
-                    Image("base2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100)
-                    //                    Ellipse()
-                    //                        .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
-                    //                        .frame(width: 100, height: 60)
-                }
-            }
-            .animation(.easeInOut(duration: 0.2))
-        }
-    }
-}
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
