@@ -12,7 +12,8 @@ struct MoleView: View {
     var text: String = "Mole"
     @State var isShowing = false
     @Binding var score: Int
-    let moleTimer = Timer.publish(every: [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6].randomElement()!, on: .main, in: .common).autoconnect()
+    @Binding var imageData: Data?
+    let moleTimer = Timer.publish(every: [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4].randomElement()!, tolerance: 0.1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
@@ -21,10 +22,18 @@ struct MoleView: View {
                 .frame(width: 100, height: 60)
             
             ZStack {
-                Image("person")
-                    .resizable().aspectRatio(contentMode: .fit)
-                    .frame(width: 80)
-                    .padding(.bottom, isShowing ? 60 : 20)
+                if image() != nil {
+                    image()!
+                        .resizable().aspectRatio(contentMode: .fit)
+                        .frame(minWidth: 60, maxWidth: 80, minHeight: 100, maxHeight: 130)
+                        .padding(.bottom, isShowing ? 60 : 20)
+                    
+                } else {
+                    Image("person")
+                        .resizable().aspectRatio(contentMode: .fit)
+                        .frame(width: 80)
+                        .padding(.bottom, isShowing ? 60 : 20)
+                }
                 Image("base2")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -40,5 +49,15 @@ struct MoleView: View {
         .onReceive(moleTimer) { time in
             isShowing.toggle()
         }
+    }
+    
+    
+    func image() -> Image? {
+        if let data = imageData {
+            if let uiImage = UIImage(data: data) {
+                return Image(uiImage: uiImage)
+            }
+        }
+        return nil
     }
 }

@@ -7,15 +7,19 @@
 
 import SwiftUI
 
+
 enum UserStatus {
-    case home, playing, gameOver
+    case home, playing, settings, gameOver
 }
+
 
 struct ContentView: View {
     
     @State var status = UserStatus.home
     @State var score = 0
     @State var timeRemaining = 100
+    @State var imageData: Data?
+    @State var showImagePicker = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -23,6 +27,8 @@ struct ContentView: View {
             HomePageView
         } else if status == .playing{
             PlayingView
+        } else if status == .settings {
+            settingsView
         } else {
             GameOverView
         }
@@ -66,9 +72,9 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                 
-                MoleView(score: $score)
+                MoleView(score: $score, imageData: $imageData)
                     .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5))
-                MoleView(score: $score)
+                MoleView(score: $score, imageData: $imageData)
                     .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5))
                 
                 
@@ -82,9 +88,9 @@ struct ContentView: View {
                 }
                 .position(x: ((geometry.size.width/2)), y: (geometry.size.height/2))
                 
-                MoleView(score: $score)
+                MoleView(score: $score, imageData: $imageData)
                     .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5)*3)
-                MoleView(score: $score)
+                MoleView(score: $score, imageData: $imageData)
                     .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5)*3)
                 
                 HStack {
@@ -97,15 +103,19 @@ struct ContentView: View {
                     Spacer()
                 }
                 
-                VStack {
-                    Button(action: {}) {
-                        Image(systemName: "gear")
-                            .padding(8)
-                            .foregroundColor(.gray)
-                            .font(.largeTitle)
-                            .background(Color.clear)
+                HStack {
+                    Spacer()
+                    VStack {
+                        Button(action: {status = .settings}) {
+                            Image(systemName: "gear")
+                                .padding(8)
+                                .foregroundColor(.gray)
+                                .font(.largeTitle)
+                                .background(Color.clear)
+                        }
                         Spacer()
                     }
+                    Spacer()
                 }
                 
             }
@@ -117,6 +127,29 @@ struct ContentView: View {
                 status = .gameOver
             }
         }
+    }
+    
+    
+    var settingsView: some View {
+        VStack {
+            Button(action: {
+                status = .playing
+            }) {
+                Text("Resume")
+                    .foregroundColor(.white)
+                    .font(.largeTitle)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(25)
+            }
+            Button(action: {showImagePicker = true}) {
+                Text("Pick image to whac")
+            }
+        }
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(imageData: $imageData)
+        }
+        
     }
     
     
@@ -134,7 +167,6 @@ struct ContentView: View {
             
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
