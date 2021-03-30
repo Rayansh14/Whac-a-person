@@ -99,6 +99,7 @@ struct ContentView: View {
                         Text("Score: \(score)")
                         Spacer()
                     }
+                    .foregroundColor(.black)
                     .padding(5)
                     Spacer()
                 }
@@ -106,7 +107,10 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        Button(action: {status = .settings}) {
+                        Button(action: {
+                            status = .settings
+                            DataController.shared.saveScore(score: score)
+                        }) {
                             Image(systemName: "gear")
                                 .padding(8)
                                 .foregroundColor(.gray)
@@ -168,6 +172,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

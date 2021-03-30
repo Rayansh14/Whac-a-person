@@ -13,6 +13,8 @@
 		44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */; };
 		44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC13260C56BE00BBD4DF /* Assets.xcassets */; };
 		44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */; };
+		44BDE1E2261308520011F9A8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BDE1E1261308520011F9A8 /* TestView.swift */; };
+		44BDE1E9261309470011F9A8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 44BDE1E8261309470011F9A8 /* .gitignore */; };
 		44D81DE0260F0BFB005D1918 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D81DDF260F0BFB005D1918 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		44B4FC13260C56BE00BBD4DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B4FC18260C56BE00BBD4DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44BDE1E1261308520011F9A8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		44BDE1E8261309470011F9A8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44D81DDF260F0BFB005D1918 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +65,9 @@
 				44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */,
 				44D81DDF260F0BFB005D1918 /* ContentView.swift */,
 				4475414B261078CA00D625DB /* MoleView.swift */,
+				44BDE1E1261308520011F9A8 /* TestView.swift */,
 				4475415526108D7100D625DB /* DataController.swift */,
+				44BDE1E8261309470011F9A8 /* .gitignore */,
 				4475415126107ABF00D625DB /* ImagePicker.swift */,
 				44B4FC13260C56BE00BBD4DF /* Assets.xcassets */,
 				44B4FC18260C56BE00BBD4DF /* Info.plist */,
@@ -136,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */,
+				44BDE1E9261309470011F9A8 /* .gitignore in Resources */,
 				44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44BDE1E2261308520011F9A8 /* TestView.swift in Sources */,
 				4475415626108D7100D625DB /* DataController.swift in Sources */,
 				4475414C261078CA00D625DB /* MoleView.swift in Sources */,
 				4475415226107ABF00D625DB /* ImagePicker.swift in Sources */,

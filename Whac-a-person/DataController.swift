@@ -10,28 +10,42 @@ import SwiftUI
 
 class DataController: ObservableObject {
     static var shared = DataController()
-    @Published var imageData: Data?
+    @Published var pastScores: [Int] = []
     
-    func image() -> Image? {
-        if let data = imageData {
-            if let uiImage = UIImage(data: data) {
-                return Image(uiImage: uiImage)
-            }
-        }
-        return nil
+    
+    func saveScore(score: Int) {
+        pastScores.append(score)
+        saveData()
     }
-}
-
-
-class whacImage: ObservableObject {
-    @Published var imageData: Data?
     
-    func image() -> Image? {
-        if let data = imageData {
-            if let uiImage = UIImage(data: data) {
-                return Image(uiImage: uiImage)
+    
+    func resetPastScores() {
+        pastScores = []
+        saveData()
+    }
+    
+    
+    func saveData() {
+        DispatchQueue.global().async {
+            let encoder = JSONEncoder()
+            if let encoded = try? encoder.encode(self.pastScores) {
+                UserDefaults.standard.setValue(encoded, forKey: "pastScores")
+                UserDefaults.standard.synchronize()
             }
         }
-        return nil
+    }
+    
+    
+    func loadData() {
+        DispatchQueue.global().async {
+            if let data = UserDefaults.standard.data(forKey: "pastScores") {
+                let decoder = JSONDecoder()
+                if let jsonPastScores = try? decoder.decode([Int].self, from: data) {
+                    DispatchQueue.main.async {
+                        self.pastScores = jsonPastScores
+                    }
+                }
+            }
+        }
     }
 }
