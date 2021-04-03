@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444F273926144F9000253A31 /* CustomButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F273826144F9000253A31 /* CustomButtonTextView.swift */; };
+		4453A2D02617019800231DAF /* shorterTestSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4453A2CF2617019800231DAF /* shorterTestSound.wav */; };
 		4475414C261078CA00D625DB /* MoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475414B261078CA00D625DB /* MoleView.swift */; };
 		4475415226107ABF00D625DB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475415126107ABF00D625DB /* ImagePicker.swift */; };
 		4475415626108D7100D625DB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475415526108D7100D625DB /* DataController.swift */; };
 		44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */; };
 		44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC13260C56BE00BBD4DF /* Assets.xcassets */; };
 		44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */; };
-		44BDE1E2261308520011F9A8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BDE1E1261308520011F9A8 /* TestView.swift */; };
-		44BDE1E9261309470011F9A8 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 44BDE1E8261309470011F9A8 /* .gitignore */; };
 		44D81DE0260F0BFB005D1918 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D81DDF260F0BFB005D1918 /* ContentView.swift */; };
+		44FEBFA02616FBB90005B43F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FEBF9F2616FBB90005B43F /* TestView.swift */; };
+		44FEBFA62616FF2E0005B43F /* testSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 44FEBFA52616FF2E0005B43F /* testSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		444F273826144F9000253A31 /* CustomButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonTextView.swift; sourceTree = "<group>"; };
+		4453A2CF2617019800231DAF /* shorterTestSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shorterTestSound.wav; sourceTree = "<group>"; };
 		4475414B261078CA00D625DB /* MoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleView.swift; sourceTree = "<group>"; };
 		4475415126107ABF00D625DB /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePicker.swift; path = "../../../Imp Files/Image Picker/ImagePicker.swift"; sourceTree = "<group>"; };
 		4475415526108D7100D625DB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -27,9 +31,9 @@
 		44B4FC13260C56BE00BBD4DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44B4FC18260C56BE00BBD4DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44BDE1E1261308520011F9A8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		44BDE1E8261309470011F9A8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		44D81DDF260F0BFB005D1918 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		44FEBF9F2616FBB90005B43F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		44FEBFA52616FF2E0005B43F /* testSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = testSound.wav; path = ../../../../../../Downloads/testSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +66,13 @@
 		44B4FC0E260C56BD00BBD4DF /* Whac-a-person */ = {
 			isa = PBXGroup;
 			children = (
+				44FEBFA32616FED50005B43F /* Sounds */,
 				44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */,
 				44D81DDF260F0BFB005D1918 /* ContentView.swift */,
+				44FEBF9F2616FBB90005B43F /* TestView.swift */,
 				4475414B261078CA00D625DB /* MoleView.swift */,
-				44BDE1E1261308520011F9A8 /* TestView.swift */,
+				444F273826144F9000253A31 /* CustomButtonTextView.swift */,
 				4475415526108D7100D625DB /* DataController.swift */,
-				44BDE1E8261309470011F9A8 /* .gitignore */,
 				4475415126107ABF00D625DB /* ImagePicker.swift */,
 				44B4FC13260C56BE00BBD4DF /* Assets.xcassets */,
 				44B4FC18260C56BE00BBD4DF /* Info.plist */,
@@ -82,6 +87,15 @@
 				44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		44FEBFA32616FED50005B43F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				44FEBFA52616FF2E0005B43F /* testSound.wav */,
+				4453A2CF2617019800231DAF /* shorterTestSound.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +155,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4453A2D02617019800231DAF /* shorterTestSound.wav in Resources */,
 				44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */,
-				44BDE1E9261309470011F9A8 /* .gitignore in Resources */,
 				44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */,
+				44FEBFA62616FF2E0005B43F /* testSound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,11 +169,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44BDE1E2261308520011F9A8 /* TestView.swift in Sources */,
+				44FEBFA02616FBB90005B43F /* TestView.swift in Sources */,
 				4475415626108D7100D625DB /* DataController.swift in Sources */,
 				4475414C261078CA00D625DB /* MoleView.swift in Sources */,
 				4475415226107ABF00D625DB /* ImagePicker.swift in Sources */,
 				44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */,
+				444F273926144F9000253A31 /* CustomButtonTextView.swift in Sources */,
 				44D81DE0260F0BFB005D1918 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

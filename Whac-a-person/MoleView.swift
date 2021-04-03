@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+var player: AVAudioPlayer!
 
 struct MoleView: View {
     
@@ -26,14 +29,14 @@ struct MoleView: View {
                 if image() != nil {
                     image()!
                         .resizable().aspectRatio(contentMode: .fit)
-                        .frame(minWidth: 60, maxWidth: 80, minHeight: 100, maxHeight: 130)
+                        .frame(minWidth: 60, maxWidth: 80, minHeight: 80, maxHeight: 105)
                         .padding(.bottom, isShowing ? 60 : 20)
                     
                 } else {
                     Image("person")
                         .resizable().aspectRatio(contentMode: .fit)
                         .frame(width: 80)
-                        .padding(.bottom, isShowing ? 60 : 20)
+                        .padding(.bottom, isShowing ? 60 : 15)
                 }
                 Image("base2")
                     .resizable()
@@ -42,9 +45,10 @@ struct MoleView: View {
             }
             .opacity(isShowing ? 1.0 : 0.0)
             .onTapGesture {
+                playSound(fileName: "shorterTestSound")
                 score += 1
                 showExplosion = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300)) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
                     isShowing = false
                     showExplosion = false
                 }
@@ -71,5 +75,19 @@ struct MoleView: View {
             }
         }
         return nil
+    }
+    
+    
+    func playSound(fileName: String) {
+        let url = Bundle.main.url(forResource: fileName, withExtension: "wav")
+        
+        if url != nil {
+            do {
+                player = try AVAudioPlayer(contentsOf: url!)
+                player.play()
+            } catch {
+                print(error)
+            }
+        }
     }
 }
