@@ -17,7 +17,8 @@ struct ContentView: View {
     @State var status = UserStatus.home
     @State var score = 0
     @State var timeRemaining = 0
-    @State var defaultTimeRemaining = 15
+    @State var defaultTimeRemaining = 25
+    @State var rotateHammer = false
     @State var imageData: Data?
     @State var showImagePicker = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -65,20 +66,27 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                 
-                MoleView(score: $score, imageData: $imageData)
+                MoleView(score: $score, rotateHammer: $rotateHammer, imageData: $imageData)
                     .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5))
-                MoleView(score: $score, imageData: $imageData)
+                MoleView(score: $score, rotateHammer: $rotateHammer, imageData: $imageData)
                     .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5))
                 
-                MoleView(score: $score, imageData: $imageData)
+                MoleView(score: $score, rotateHammer: $rotateHammer, imageData: $imageData)
                     .position(x: geometry.size.width/2, y: geometry.size.height/1.88)
                 
-                MoleView(score: $score, imageData: $imageData)
+                MoleView(score: $score, rotateHammer: $rotateHammer, imageData: $imageData)
                     .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5)*3)
-                MoleView(score: $score, imageData: $imageData)
+                MoleView(score: $score, rotateHammer: $rotateHammer, imageData: $imageData)
                     .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5)*3)
                 
                 GameInfoDisplayView
+                
+
+                    Image("hammer")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 100)
+                        .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
                 
                 HStack {
                     Spacer()

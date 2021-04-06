@@ -16,6 +16,7 @@ struct MoleView: View {
     @State var isShowing = false
     @State var showExplosion = false
     @Binding var score: Int
+    @Binding var rotateHammer: Bool
     @Binding var imageData: Data?
     let moleTimer = Timer.publish(every: [0.5, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.3].randomElement()!, tolerance: 0.1, on: .main, in: .common).autoconnect()
     
@@ -48,9 +49,11 @@ struct MoleView: View {
                 playSound(fileName: "shorterTestSound")
                 score += 1
                 showExplosion = true
+                rotateHammer = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(400)) {
                     isShowing = false
                     showExplosion = false
+                    rotateHammer = false
                 }
             }
             .animation(.easeOut(duration: 0.2))
