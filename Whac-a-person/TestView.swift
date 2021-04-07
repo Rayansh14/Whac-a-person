@@ -4,36 +4,15 @@
 //
 //  Created by Rayansh Gupta on 02/04/21.
 //
-/*
-import SwiftUI
-import AVFoundation
 
-var player: AVAudioPlayer!
+import SwiftUI
 
 struct TestView: View {
     var body: some View {
-        VStack {
-            Button(action: {
-                playSound()
-            }) {
-                Text("Play Sound")
-                    .font(.largeTitle)
-            }
-        }
-    }
-    
-    
-    func playSound() {
-        let url = Bundle.main.url(forResource: "testSound", withExtension: "wav")
-        
-        if url != nil {
-            do {
-                player = try AVAudioPlayer(contentsOf: url!)
-                player.play()
-            } catch {
-                print(error)
-            }
-        }
+        Color.gray
+            .gesture(DragGesture(minimumDistance: 0).onEnded({ (value) in
+                print(value.location) // Location of the tap, as a CGPoint.
+            }))
     }
 }
 
@@ -42,4 +21,4 @@ struct TestView_Previews: PreviewProvider {
         TestView()
     }
 }
-*/
+

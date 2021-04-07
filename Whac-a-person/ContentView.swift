@@ -19,6 +19,7 @@ struct ContentView: View {
     @State var timeRemaining = 0
     @State var defaultTimeRemaining = 25
     @State var rotateHammer = false
+    @State var hammerPosition = CGPoint(x: 200, y: 100)
     @State var imageData: Data?
     @State var showImagePicker = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -81,12 +82,13 @@ struct ContentView: View {
                 
                 GameInfoDisplayView
                 
-
-                    Image("hammer")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                        .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
+                
+                Image("hammer")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
+                    .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
+                    .position(hammerPosition)
                 
                 HStack {
                     Spacer()
