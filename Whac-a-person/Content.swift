@@ -81,14 +81,6 @@ struct ContentView: View {
                 
                 GameInfoDisplayView
                 
-                
-//                Image("hammer")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(height: 100)
-//                    .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
-//                    .position(hammerPosition)
-                
                 HStack {
                     Spacer()
                     VStack {
@@ -160,6 +152,12 @@ struct ContentView: View {
                         }) {
                             CustomButtonTextView(text: "Main Menu", cornerRadius: 20, font: Font.title, padding: 12)
                         }
+                        
+                        Button(action: {
+                            imageData = nil
+                        }) {
+                            CustomButtonTextView(text: "Reset photo", cornerRadius: 20, font: Font.title, padding: 12)
+                        }
                     }
                     .padding(.top, 5)
                 }
@@ -174,12 +172,23 @@ struct ContentView: View {
     
     
     var GameOverView: some View {
-        VStack {
-            Text("Score: \(score)")
-            Button(action: {status = .home}) {
-                CustomButtonTextView(text: "Home")
+        GeometryReader { geometry in
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                Image("background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                    .opacity(0.3)
+                VStack {
+                    Text("Score: \(score)")
+                    Button(action: {status = .home}) {
+                        CustomButtonTextView(text: "Home")
+                    }
+                }
+                .position(x: geometry.size.width/2, y: geometry.size.height/2)
             }
-            
         }
     }
     

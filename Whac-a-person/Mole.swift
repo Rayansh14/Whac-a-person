@@ -12,13 +12,13 @@ var player: AVAudioPlayer!
 
 struct MoleView: View {
     
-    var text: String = "Mole"
     @State var isShowing = false
     @State var showExplosion = false
     @State var rotateHammer = false
     @State var showHammer = false
     @Binding var score: Int
     @Binding var imageData: Data?
+    
     let moleTimer = Timer.publish(every: [0.5, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2].randomElement()!, tolerance: 0.1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -28,11 +28,11 @@ struct MoleView: View {
                 .frame(width: 100, height: 60)
             
             ZStack {
-                if image() != nil {
-                    image()!
+                if let image = image() {
+                    image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(3 )
+                        .cornerRadius(2)
                         .frame(minWidth: 60, maxWidth: 80, minHeight: 80, maxHeight: 105)
                         .padding(.bottom, isShowing ? 60 : 20)
                     
@@ -66,15 +66,15 @@ struct MoleView: View {
                 }
             }
             .animation(.easeOut(duration: 0.2))
-            if showHammer {
-                Image("hammer")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 100)
-                    .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
-                    .padding(.bottom, 175)
-                    .padding(.leading, 60)
-            }
+            
+            Image("hammer")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 100)
+                .rotationEffect(.degrees(rotateHammer ? -30 : 0), anchor: .bottomTrailing)
+                .padding(.bottom, 175)
+                .padding(.leading, 60)
+                .opacity(showHammer ? 1 : 0)
             
             Image("explosion")
                 .resizable()
@@ -82,10 +82,12 @@ struct MoleView: View {
                 .frame(width: 50, height: 50)
                 .padding(.bottom, 130)
                 .padding(.leading, 5)
-                .opacity(showExplosion ? 1.0 : 0.0)
+                .opacity(showExplosion ? 1 : 0)
         }
         .onReceive(moleTimer) { time in
-            isShowing.toggle()
+            if !showHammer {
+                isShowing.toggle()
+            }
         }
     }
     
