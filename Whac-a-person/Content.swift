@@ -176,11 +176,13 @@ struct ContentView: View {
             ZStack {
                 Color.black
                     .ignoresSafeArea()
+                
                 Image("background")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                     .opacity(0.3)
+                
                 VStack {
                     Text("Score: \(score)")
                     Button(action: {status = .home}) {
