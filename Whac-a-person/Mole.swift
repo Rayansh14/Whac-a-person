@@ -51,6 +51,7 @@ struct MoleView: View {
             }
             .opacity(isShowing ? 1.0 : 0.0)
             .onTapGesture {
+                if !showHammer {
                 showHammer = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
                     playSound(fileName: "shorterTestSound")
@@ -63,6 +64,7 @@ struct MoleView: View {
                         rotateHammer = false
                         showHammer = false
                     }
+                }
                 }
             }
             .animation(.easeOut(duration: 0.2))

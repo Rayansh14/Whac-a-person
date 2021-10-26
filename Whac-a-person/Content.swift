@@ -17,7 +17,7 @@ struct ContentView: View {
     @State var status = UserStatus.home
     @State var score = 0
     @State var timeRemaining = 0
-    @State var defaultTimeRemaining = 25
+    var defaultTimeRemaining = 25
     @State var rotateHammer = false
     @State var imageData: Data?
     @State var showImagePicker = false
@@ -66,18 +66,36 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
                 
+                HStack {
+                    Spacer()
                 MoleView(score: $score, imageData: $imageData)
-                    .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5))
+                    Spacer()
                 MoleView(score: $score, imageData: $imageData)
-                    .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5))
+                    Spacer()
+                }
+                .position(x: geometry.size.width/2, y: geometry.size.height/3.5)
                 
+                HStack {
+                    Spacer()
                 MoleView(score: $score, imageData: $imageData)
-                    .position(x: geometry.size.width/2, y: geometry.size.height/1.88)
+                    Spacer()
+                    Spacer()
+                MoleView(score: $score, imageData: $imageData)
+                    Spacer()
+                    Spacer()
+                MoleView(score: $score, imageData: $imageData)
+                    Spacer()
+                }
+                .position(x: geometry.size.width/2, y: geometry.size.height/1.75)
                 
+                HStack {
+                    Spacer()
                 MoleView(score: $score, imageData: $imageData)
-                    .position(x: (geometry.size.width/4), y: (geometry.size.height/3.5)*3)
+                    Spacer()
                 MoleView(score: $score, imageData: $imageData)
-                    .position(x: ((geometry.size.width/4)*3), y: (geometry.size.height/3.5)*3)
+                    Spacer()
+                }
+                .position(x: geometry.size.width/2, y: geometry.size.height/3.5*3)
                 
                 GameInfoDisplayView
                 
@@ -136,6 +154,18 @@ struct ContentView: View {
                     
                     HStack {
                         Button(action: {
+                            imageData = nil
+                        }) {
+                            CustomButtonTextView(text: "Reset photo", cornerRadius: 20, font: Font.title, padding: 12)
+                        }
+                        
+                        Button(action: {
+                            status = .home
+                        }) {
+                            CustomButtonTextView(text: "Main Menu", cornerRadius: 20, font: Font.title, padding: 12)
+                        }
+                        
+                        Button(action: {
                             status = .playing
                         }) {
                             CustomButtonTextView(text: "Resume", cornerRadius: 20, font: Font.title, padding: 12)
@@ -147,17 +177,6 @@ struct ContentView: View {
                             CustomButtonTextView(text: "Restart", cornerRadius: 20, font: Font.title, padding: 12)
                         }
                         
-                        Button(action: {
-                            status = .home
-                        }) {
-                            CustomButtonTextView(text: "Main Menu", cornerRadius: 20, font: Font.title, padding: 12)
-                        }
-                        
-                        Button(action: {
-                            imageData = nil
-                        }) {
-                            CustomButtonTextView(text: "Reset photo", cornerRadius: 20, font: Font.title, padding: 12)
-                        }
                     }
                     .padding(.top, 5)
                 }
@@ -238,5 +257,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

@@ -11,8 +11,8 @@ struct CustomButtonTextView: View {
     
     var text: String
     var foregroundColor = Color.white
-    var backgroundColor = Color.blue
-    var cornerRadius: CGFloat = 25
+    var backgroundColor = Color("green")
+    var cornerRadius: CGFloat = 10
     var font = Font.largeTitle
     var padding: CGFloat = 15
     
@@ -21,14 +21,17 @@ struct CustomButtonTextView: View {
             .foregroundColor(foregroundColor)
             .font(font)
             .padding(padding)
-            .background(backgroundColor)
+            .background(
+                LinearGradient(colors: [Color.green, Color("green")], startPoint: .bottom, endPoint: .top)
+            )
             .cornerRadius(cornerRadius)
+            .shadow(color: Color.gray, radius: 5, x: -5, y: 5)
     }
     
 }
 
 struct CustomButtonTextView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomButtonTextView(text: "")
+        CustomButtonTextView(text: "Restart")
     }
 }
