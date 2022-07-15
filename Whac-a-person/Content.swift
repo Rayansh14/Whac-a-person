@@ -11,13 +11,14 @@ enum UserStatus {
     case home, playing, settings, gameOver
 }
 
+let gifImageWidth: CGFloat = 300.0
 
 struct ContentView: View {
     
     @State var status = UserStatus.home
     @State var score = 0
     @State var timeRemaining = 0
-    var defaultTimeRemaining = 25
+    var defaultTimeRemaining = 30
     @State var rotateHammer = false
     @State var imageData: Data?
     @State var showImagePicker = false
@@ -26,7 +27,7 @@ struct ContentView: View {
     var body: some View {
         if status == .home {
             HomePageView
-        } else if status == .playing{
+        } else if status == .playing {
             PlayingView
         } else if status == .settings {
             SettingsView
@@ -40,16 +41,21 @@ struct ContentView: View {
         ZStack {
             Color.green
                 .ignoresSafeArea()
-            Button(action: {
-                startNewGame()
-            }) {
-                CustomButtonTextView(text: "Play")
+            HStack {
+                GifImage("whack")
+                    .frame(width: gifImageWidth, height: gifImageWidth*0.88)
+                    .padding(.top, 40)
+                Button(action: {
+                    startNewGame()
+                }) {
+                    CustomButton(text: "Play", font: .system(size: 30), horizontalPadding: 20, verticalPadding: 15)
+                }
             }
             VStack {
-                Text("Home")
+                Text("Whack-a-person")
                     .bold()
-                    .font(.system(size: 50))
-                    .foregroundColor(.white)
+                    .font(.system(size: 40))
+                    .foregroundColor(.black)
                     .padding()
                 Spacer()
             }
@@ -68,40 +74,50 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
                 }
                 .position(x: geometry.size.width/2, y: geometry.size.height/3.5)
                 
                 HStack {
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
                 }
                 .position(x: geometry.size.width/2, y: geometry.size.height/1.75)
                 
                 HStack {
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
-                MoleView(score: $score, imageData: $imageData)
+                    MoleView(score: $score, imageData: $imageData)
                     Spacer()
                 }
                 .position(x: geometry.size.width/2, y: geometry.size.height/3.5*3)
                 
-                GameInfoDisplayView
-                
-                HStack {
-                    Spacer()
-                    VStack {
+                VStack {
+                    HStack {
+                        
+                        Text("SCORE\n")
+                        //                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.black)
+                        +
+                        Text("\(score)")
+                        //                            .foregroundColor(.white)
+                            .font(.system(size: 35))
+                            .fontWeight(.black)
+                        
+                        Spacer()
+                        
                         Button(action: {
                             status = .settings
                         }) {
@@ -111,10 +127,35 @@ struct ContentView: View {
                                 .font(.largeTitle)
                                 .background(Color.clear)
                         }
+                        
                         Spacer()
+                        
+                        GameTimer(timeRemaining: $timeRemaining, totalTime: defaultTimeRemaining)
                     }
                     Spacer()
                 }
+                .padding(.vertical, 10)
+                
+                //                HStack {
+                //                    VStack {
+                //                        Text("Time: \(timeRemaining)")
+                //                        Spacer()
+                //                    }
+                //                    .foregroundColor(.black)
+                //                    .padding(5)
+                //                    Spacer()
+                //                }
+                //
+                //                HStack {
+                //                    Spacer()
+                //                    VStack {
+                //
+                //                        Spacer()
+                //                    }
+                //                    Spacer()
+                //                }
+                
+                
                 
             }
         }
@@ -139,91 +180,97 @@ struct ContentView: View {
                     .background(Color.white)
                     .opacity(0.3)
                 
-                VStack {
-                    Button(action: {showImagePicker = true}) {
-                        Text("Pick image to whack")
-                            .font(.system(size: 20))
-                    }
-                    if image() != nil {
-                        image()!
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(minWidth: 150, maxWidth: 200, maxHeight: 250)
-                            .padding(0)
-                    }
+                HStack {
                     
-                    HStack {
-                        Button(action: {
-                            imageData = nil
-                        }) {
-                            CustomButtonTextView(text: "Reset photo", cornerRadius: 20, font: Font.title, padding: 12)
-                        }
-                        
-                        Button(action: {
-                            status = .home
-                        }) {
-                            CustomButtonTextView(text: "Main Menu", cornerRadius: 20, font: Font.title, padding: 12)
-                        }
-                        
+                    VStack(spacing: 12) {
                         Button(action: {
                             status = .playing
                         }) {
-                            CustomButtonTextView(text: "Resume", cornerRadius: 20, font: Font.title, padding: 12)
+                            SettingsButton(text: "RESUME", imageName: "play.circle.fill")
                         }
                         
                         Button(action: {
                             startNewGame()
                         }) {
-                            CustomButtonTextView(text: "Restart", cornerRadius: 20, font: Font.title, padding: 12)
+                            SettingsButton(text: "RESTART", imageName: "gobackward")
+                        }
+                        
+                        Button(action: {
+                            status = .home
+                        }) {
+                            SettingsButton(text: "MAIN MENU", imageName: "rectangle.portrait.and.arrow.right.fill")
+                        }
+                    }
+                    .padding(.horizontal, 50)
+                    
+                    VStack {
+                        Button(action: {showImagePicker = true}) {
+                            SettingsButton(text: "Pick image to whack")
+                        }
+                        
+                        if let image = image() {
+                            Button(action: {
+                                showImagePicker = true
+                            }) {
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .cornerRadius(8)
+                                    .frame(maxHeight: 210)
+                                    .padding(.vertical, 10)
+                            }
+                            .buttonStyle(BorderlessButtonStyle())
+                            .padding(.bottom, -5)
+                            
+                            
+                            Button(action: {
+                                imageData = nil
+                            }) {
+                                SettingsButton(text: "Reset photo")
+                            }
                         }
                         
                     }
-                    .padding(.top, 5)
+                    .padding(.horizontal, 50)
+                    
                 }
+                .padding(.vertical, 35)
                 .position(x: geometry.size.width/2, y: geometry.size.height/2)
                 .sheet(isPresented: $showImagePicker) {
                     ImagePicker(imageData: $imageData)
                 }
-                GameInfoDisplayView
+                //                GameInfoDisplayView
             }
         }
     }
     
     
     var GameOverView: some View {
-        GeometryReader { geometry in
-            ZStack {
-                Color.black
-                    .ignoresSafeArea()
-                
-                Image("background")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .ignoresSafeArea()
-                    .opacity(0.3)
-                
-                VStack {
-                    Text("Score: \(score)")
-                    Button(action: {status = .home}) {
-                        CustomButtonTextView(text: "Home")
-                    }
-                }
-                .position(x: geometry.size.width/2, y: geometry.size.height/2)
-            }
-        }
-    }
-    
-    
-    var GameInfoDisplayView: some View {
-        HStack {
+        ZStack {
+            Color.black
+                .ignoresSafeArea()
+            
+            Image("background")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+                .opacity(0.75)
+            
             VStack {
-                Text("Time: \(timeRemaining)")
+                
                 Text("Score: \(score)")
-                Spacer()
+                    .foregroundColor(.white)
+                    .font(.title2)
+                Text("\(score < 20 ? "Not a great score 😬. Surely you can do better!" : "Seems like you're a pro 😎!!!")")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .foregroundColor(.white)
+                Button(action: {
+                    status = .home
+                }) {
+                    CustomButton(text: "Home", font: Font.largeTitle, horizontalPadding: 25, verticalPadding: 12)
+                }
             }
-            .foregroundColor(.black)
-            .padding(5)
-            Spacer()
         }
     }
     
@@ -256,7 +303,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(status: UserStatus.home)
             .previewInterfaceOrientation(.landscapeRight)
     }
 }

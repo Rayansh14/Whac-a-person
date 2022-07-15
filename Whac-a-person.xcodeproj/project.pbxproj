@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441C18082876B0220038F54A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441C18072876B0220038F54A /* CustomButton.swift */; };
+		441E6E1A286E2D7B00B4684E /* GameTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E6E19286E2D7B00B4684E /* GameTimer.swift */; };
 		4424624A27269A5600223AB6 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4424624927269A5600223AB6 /* Testing.swift */; };
 		442B1AF42725685400B91876 /* shorterTestSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 442B1AF32725685400B91876 /* shorterTestSound.wav */; };
-		444F273926144F9000253A31 /* CustomButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F273826144F9000253A31 /* CustomButtonTextView.swift */; };
+		4441CEBA273D314A003B5CF7 /* whack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4441CEB9273D3149003B5CF7 /* whack.gif */; };
+		444F273926144F9000253A31 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F273826144F9000253A31 /* SettingsButton.swift */; };
 		4475414C261078CA00D625DB /* Mole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475414B261078CA00D625DB /* Mole.swift */; };
-		4475415226107ABF00D625DB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475415126107ABF00D625DB /* ImagePicker.swift */; };
 		4475415626108D7100D625DB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4475415526108D7100D625DB /* DataController.swift */; };
+		44B143FF273047360028ECF8 /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B143FE273047360028ECF8 /* UIKit.swift */; };
 		44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */; };
 		44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC13260C56BE00BBD4DF /* Assets.xcassets */; };
 		44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B4FC16260C56BE00BBD4DF /* Preview Assets.xcassets */; };
@@ -20,12 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441C18072876B0220038F54A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		441E6E19286E2D7B00B4684E /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
 		4424624927269A5600223AB6 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		442B1AF32725685400B91876 /* shorterTestSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shorterTestSound.wav; sourceTree = "<group>"; };
-		444F273826144F9000253A31 /* CustomButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonTextView.swift; sourceTree = "<group>"; };
+		4441CEB9273D3149003B5CF7 /* whack.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = whack.gif; sourceTree = "<group>"; };
+		444F273826144F9000253A31 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		4475414B261078CA00D625DB /* Mole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mole.swift; sourceTree = "<group>"; };
-		4475415126107ABF00D625DB /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePicker.swift; path = "../../../Imp Files/Image Picker/ImagePicker.swift"; sourceTree = "<group>"; };
 		4475415526108D7100D625DB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		44B143FE273047360028ECF8 /* UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKit.swift; sourceTree = "<group>"; };
 		44B4FC0C260C56BD00BBD4DF /* Whac-a-person.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whac-a-person.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whac_a_personApp.swift; sourceTree = "<group>"; };
 		44B4FC13260C56BE00BBD4DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +51,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441C180D2876B1000038F54A /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				441C18072876B0220038F54A /* CustomButton.swift */,
+				444F273826144F9000253A31 /* SettingsButton.swift */,
+				441E6E19286E2D7B00B4684E /* GameTimer.swift */,
+				4475414B261078CA00D625DB /* Mole.swift */,
+				4424624927269A5600223AB6 /* Testing.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		441C180E2876B1200038F54A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4475415526108D7100D625DB /* DataController.swift */,
+				44B143FE273047360028ECF8 /* UIKit.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		44B4FC03260C56BD00BBD4DF = {
 			isa = PBXGroup;
 			children = (
@@ -67,11 +94,9 @@
 				44FEBFA32616FED50005B43F /* Sounds */,
 				44B4FC0F260C56BD00BBD4DF /* Whac_a_personApp.swift */,
 				44D81DDF260F0BFB005D1918 /* Content.swift */,
-				4475414B261078CA00D625DB /* Mole.swift */,
-				444F273826144F9000253A31 /* CustomButtonTextView.swift */,
-				4475415526108D7100D625DB /* DataController.swift */,
-				4424624927269A5600223AB6 /* Testing.swift */,
-				4475415126107ABF00D625DB /* ImagePicker.swift */,
+				441C180D2876B1000038F54A /* SubViews */,
+				441C180E2876B1200038F54A /* Data */,
+				4441CEB9273D3149003B5CF7 /* whack.gif */,
 				44B4FC13260C56BE00BBD4DF /* Assets.xcassets */,
 				44B4FC18260C56BE00BBD4DF /* Info.plist */,
 				44B4FC15260C56BE00BBD4DF /* Preview Content */,
@@ -111,6 +136,8 @@
 			dependencies = (
 			);
 			name = "Whac-a-person";
+			packageProductDependencies = (
+			);
 			productName = "Whac-a-person";
 			productReference = 44B4FC0C260C56BD00BBD4DF /* Whac-a-person.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +165,8 @@
 				Base,
 			);
 			mainGroup = 44B4FC03260C56BD00BBD4DF;
+			packageReferences = (
+			);
 			productRefGroup = 44B4FC0D260C56BD00BBD4DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +184,7 @@
 				442B1AF42725685400B91876 /* shorterTestSound.wav in Resources */,
 				44B4FC17260C56BE00BBD4DF /* Preview Assets.xcassets in Resources */,
 				44B4FC14260C56BE00BBD4DF /* Assets.xcassets in Resources */,
+				4441CEBA273D314A003B5CF7 /* whack.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,10 +197,12 @@
 			files = (
 				4475415626108D7100D625DB /* DataController.swift in Sources */,
 				4424624A27269A5600223AB6 /* Testing.swift in Sources */,
+				441C18082876B0220038F54A /* CustomButton.swift in Sources */,
 				4475414C261078CA00D625DB /* Mole.swift in Sources */,
-				4475415226107ABF00D625DB /* ImagePicker.swift in Sources */,
+				44B143FF273047360028ECF8 /* UIKit.swift in Sources */,
 				44B4FC10260C56BD00BBD4DF /* Whac_a_personApp.swift in Sources */,
-				444F273926144F9000253A31 /* CustomButtonTextView.swift in Sources */,
+				441E6E1A286E2D7B00B4684E /* GameTimer.swift in Sources */,
+				444F273926144F9000253A31 /* SettingsButton.swift in Sources */,
 				44D81DE0260F0BFB005D1918 /* Content.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
